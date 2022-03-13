@@ -110,9 +110,13 @@ It then creates an access control list to limit the input and output flow to the
 
 .. important::
     Access control rules are stateless, meaning rules shall be set up to allow :
+
     - The egress requests to any location outside of the subnet
+
     - The ingress response to those requests from the location outside of the subnet
+
     - The ingress requests from any location outside of the subnet
+
     - The egress response to those requests to the location outside of the subnet
 
 Testing
