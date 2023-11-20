@@ -1,46 +1,51 @@
 # -------------------------------------------------------
-# TECHNOGIX 
+# TECHNOGIX
 # -------------------------------------------------------
 # Copyright (c) [2021] Technogix.io
-# All rights reserved 
+# All rights reserved
 # -------------------------------------------------------
-# Module to deploy an aws subnet with all the secure 
+# Module to deploy an aws subnet with all the secure
 # components required
 # -------------------------------------------------------
 # Nadège LEMPERIERE, @12 november 2021
-# Latest revision: 12 november 2021
+# Latest revision: 20 november 2023
 # -------------------------------------------------------
 
 # -------------------------------------------------------
 # Contact e-mail for this deployment
 # -------------------------------------------------------
 variable "email" {
-	type 	= string
+	type 	 = string
+	nullable = false
 }
 
 # -------------------------------------------------------
 # Environment for this deployment (prod, preprod, ...)
 # -------------------------------------------------------
 variable "environment" {
-	type 	= string
+	type 	 = string
+	nullable = false
 }
 
 # -------------------------------------------------------
 # Topic context for this deployment
 # -------------------------------------------------------
 variable "project" {
-	type    = string
+	type     = string
+	nullable = false
 }
 variable "module" {
-	type 	= string
+	type 	 = string
+	nullable = false
 }
 
 # -------------------------------------------------------
 # Solution version
 # -------------------------------------------------------
 variable "git_version" {
-	type    = string
-	default = "unmanaged"
+	type     = string
+	nullable = false
+	default  = "unmanaged"
 }
 
 # -------------------------------------------------------
@@ -51,6 +56,7 @@ variable "vpc" {
 		id 		= string,
 		route 	= string
     })
+	nullable = false
 }
 
 #  -------------------------------------------------------
@@ -62,10 +68,11 @@ variable "subnet" {
 		cidr 	= string,
 		region 	= string
     })
+	nullable = false
 }
 
 #  -------------------------------------------------------
-# Egress acl rules to associate to subnet 
+# Egress acl rules to associate to subnet
 # --------------------------------------------------------
 variable "egress" {
 	type = list(object({
@@ -74,10 +81,11 @@ variable "egress" {
 		to = number,
 		protocol = string
 	}))
+	nullable = false
 }
 
 #  -------------------------------------------------------
-# Ingress acl rules to associate to subnet 
+# Ingress acl rules to associate to subnet
 # --------------------------------------------------------
 variable "ingress" {
 	type = list(object({
@@ -86,4 +94,5 @@ variable "ingress" {
 		to = number,
 		protocol = string
 	}))
+	nullable = false
 }
